@@ -1,12 +1,16 @@
 @extends('layout.app')
 
-@section('title', 'Pengaduan')
+@section('title', 'Rincian Pengaduan')
 
 @push('style')
     <!-- CSS Libraries -->
     <link rel="stylesheet" href="{{ asset('library/jqvmap/dist/jqvmap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('library/summernote/dist/summernote-bs4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/img.css') }}">
+    <!-- quill js -->
+    <link rel="stylesheet" href="https://cdn.quilljs.com/1.3.6/quill.snow.css" />
+    <link href="https://cdn.quilljs.com/1.3.6/quill.core.css" rel="stylesheet" />
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <script src=" https://cdn.jsdelivr.net/npm/quill-image-resize-module@3.0.0/image-resize.min.js"></script>
 @endpush
 
@@ -14,39 +18,26 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Pengaduan</h1>
+                <h1>Rincian Pengaduan</h1>
             </div>
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                    <div class="form-group">
-                        <label>Pilih Jenis Pengaduan</label>
-                        <select class="form-control">
-                            <option>Option 1</option>
-                            <option>Option 2</option>
-                            <option>Option 3</option>
-                        </select>
-                    </div>
                     <div class="row">
                         <div class="col-8">
                             <div class="form-group">
-                                <label>Buat Pengaduan Anda</label>
-                                <textarea class="form-control" data-height="250"></textarea>
+                                <label>Rincian Aduan</label>
+                                <textarea class="form-control" data-height="250" readonly></textarea>
                             </div>
                         </div>
                         <div class="col-4">
                             <label>Foto Aduan</label>
-                            <div class="input-group">
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="customFile" accept=".jpg,.gif,.png,.jpeg,.HEIF">
-                                    <label class="custom-file-label" for="customFile">Choose file</label>
-                                </div>
-                            </div>
-                            <img id="img-upload" />
+                            <img src="{{ asset('images/9440461.jpg') }}" class="img-fluid" alt="...">
                         </div>
                     </div>
                     <div class="row justify-content-center mt-5">
                         <div class="col-12 col-md-6 text-center">
-                            <a href="#" class="btn btn-primary mt-2" type="button">Buat Pengaduan</a>
+                            <a href="#" class="btn btn-primary mt-2" type="button">Simpan</a>
+                            <a href="#" class="btn btn-danger mt-2" type="button">Hapus</a>
                         </div>
                     </div>
                 </div>

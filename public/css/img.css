@@ -6,8 +6,6 @@
     position: absolute;
     top: 0;
     right: 0;
-    min-width: 100%;
-    min-height: 100%;
     font-size: 100px;
     text-align: right;
     filter: alpha(opacity=0);
@@ -20,9 +18,8 @@
 
 #img-upload {
     width: 100%;
-    height: auto;
-    max-width: 100%;
+    height: fit-content;
+    max-width: 50%;
     display: block;
     margin-top: 10px;
-    object-fit: contain; /* Menjaga rasio aspek asli gambar */
 }

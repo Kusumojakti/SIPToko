@@ -9,7 +9,7 @@
         <ul class="sidebar-menu">
             <li class="menu-header">Dashboard</li>
             <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+                <a href="/dashboard" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
             <li class="nav-item dropdown">  
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Data Follow Up</span></a>
@@ -24,7 +24,7 @@
             </li> 
 
             <li class="nav-item">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Pengaduan Maintenance</span></a>
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Pengaduan</span></a>
                 <ul class="dropdown-menu">
                     <li class='#'>
                         <a class="nav-link" href="/tambah-pengaduan">Buat Pengaduan</a>

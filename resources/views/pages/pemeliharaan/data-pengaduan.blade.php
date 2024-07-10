@@ -74,11 +74,7 @@
                                                     </button>
                                                     <div class="dropdown-menu">
                                                         <a class="dropdown-item has-icon"
-                                                            data-toggle="modal" data-target="#editdata"><i class="fa-regular fa-pen-to-square"></i> Edit</a>
-                                                        <a class="dropdown-item has-icon"
-                                                            href="#"><i class="fa-solid fa-trash"></i> Follow Up Pengaduan</a>
-                                                        <a class="dropdown-item has-icon"
-                                                            href="#"><i class="fa-solid fa-trash"></i> Hapus</a>
+                                                            data-toggle="modal" data-target="editdata"><i class="fa-regular fa-pen-to-square"></i> Follow Up Pengaduan</a>
                                                     </div>
                                                 </div>
                                             </td> 

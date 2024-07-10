@@ -58,7 +58,7 @@
                 </div>
               </div>
             </form>
-            <p class="text-center mt-5">Don't have an account? <a href="#!">Register</a></p>
+            <p class="text-center mt-5">Don't have an account? <a href="/register">Register</a></p>
             <div class="row">
               <div class="col-12">
                 <div class="text-center mt-4">

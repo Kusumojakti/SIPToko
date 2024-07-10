@@ -26,6 +26,13 @@ Route::get('/tambah-pengaduan', function () {
     return view('pages.karyawan.tambah-pengaduan');
 });
 
+Route::get('/followupkaryawan', function () {
+    return view('pages.karyawan.followupkaryawan');
+});
+
+Route::get('/rincian-pengaduan', function () {
+    return view('pages.karyawan.rincian-aduan');
+});
 
 Route::get('/admin-dashboard', function () {
     return view('pages.pemeliharaan.dashboard-admin');
@@ -33,6 +40,14 @@ Route::get('/admin-dashboard', function () {
 
 Route::get('/data-pengaduan', function () {
     return view('pages.pemeliharaan.data-pengaduan');
+});
+
+Route::get('/data-user', function () {
+    return view('pages.pemeliharaan.data-user');
+});
+
+Route::get('/followup', function () {
+    return view('pages.pemeliharaan.follow-up');
 });
 
 

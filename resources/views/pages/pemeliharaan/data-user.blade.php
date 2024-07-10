@@ -1,6 +1,6 @@
 @extends('layout.app')
 
-@section('title', 'Data Pengaduan')
+@section('title', 'Data User')
 
 @push('style')
     <!-- CSS Libraries -->
@@ -25,26 +25,18 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Lihat Pengaduan</h1>
+                <h1>Data User</h1>
             </div>
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                    <div class="form-group">
-                        <label>Pilih Jenis Pengaduan</label>
-                        <select class="form-control">
-                            <option>Option 1</option>
-                            <option>Option 2</option>
-                            <option>Option 3</option>
-                        </select>
-                    </div>
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4>Lihat Aduan</h4>
-                                    <div class="card-header-form">
+                                    <h4>Data User</h4>
+                                    <!-- <div class="card-header-form">
                                         <button class="btn btn-primary" type="button">Tambah Pengaduan</button>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
@@ -55,11 +47,10 @@
                                                     <th class="text-center">
                                                         #
                                                     </th>
-                                                    <th>Pengaduan</th>
-                                                    <th>Created At</th>
-                                                    <th>Pelapor</th>
-                                                    <th>Dikerjakan</th>
-                                                    <th>Status</th>
+                                                    <th>User ID</th>
+                                                    <th>Nama</th>
+                                                    <th>NIK</th>
+                                                    <th>Role</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -75,12 +66,13 @@
                                                     </td>
                                                     <td>Rafino</td>
                                                     <td>
-                                                        <div class="badge badge-success">Completed</div>
-                                                        <div class="badge badge-info">Inprogress</div>
-                                                        <div class="badge badge-warning">Pending</div>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item has-icon"
+                                                                href="#"><i class="fa-regular fa-pen-to-square"></i>Edit</a>
+                                                            <a class="dropdown-item has-icon"
+                                                                href="#"><i class="fa-regular fa-pen-to-square"></i>Hapus</a>
+                                                        </div>
                                                     </td>
-                                                    <td><a href="/rincian-pengaduan"
-                                                            class="btn btn-primary">Detail</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>

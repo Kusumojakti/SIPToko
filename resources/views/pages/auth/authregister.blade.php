@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIPToko | Login</title>
     <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.4/components/logins/login-9/assets/css/login-9.css">        
+    <link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.4/components/logins/login-9/assets/css/login-9.css"> 
+      <!-- CSS Libraries -->
+    <link rel="stylesheet"
+        href="{{ asset('library/izitoast/dist/css/iziToast.min.css') }}">      
 </head>
 <body>
 
@@ -59,7 +62,7 @@
                 </div>
                 <div class="col-12">
                   <div class="d-grid">
-                    <button class="btn btn-primary btn-lg text-bold-500" type="submit">Register</button>
+                    <button class="btn btn-primary btn-lg text-bold-500" id="toastr-2">Register</button>
                   </div>
                 </div>
               </div>
@@ -70,5 +73,10 @@
     </div>
   </div>
 </section>
+    <!-- JS Libraies -->
+  <script src="{{ asset('library/izitoast/dist/js/iziToast.min.js') }}"></script>
+
+    <!-- Page Specific JS File -->
+  <script src="{{ asset('js/page/modules-toastr.js') }}"></script>
 </body>
 </html>
