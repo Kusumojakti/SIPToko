@@ -9,10 +9,10 @@
         <ul class="sidebar-menu">
             <li class="menu-header">Dashboard</li>
             <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown"><i class="fa-solid fa-gauge"></i><span>Dashboard</span></a>
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
             <li class="nav-item dropdown">  
-                <a href="#" class="nav-link has-dropdown"><i class="fa-solid fa-plus"></i><span>Data Follow Up</span></a>
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Data Follow Up</span></a>
                 <ul class="dropdown-menu">
                     <li class=''>
                         <a class="nav-link" href="#">Detail Komplain</a>
@@ -21,14 +21,18 @@
                         <a class="nav-link" href="#">Aktifitas Komplain</a>
                     </li>
                 </ul>
-            </li>
+            </li> 
+
             <li class="nav-item">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Pengaduan</span></a>
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Pengaduan Maintenance</span></a>
                 <ul class="dropdown-menu">
                     <li class='#'>
-                        <a class="nav-link" href="/pengaduan">Buat Pengaduan</a>
+                        <a class="nav-link" href="/tambah-pengaduan">Buat Pengaduan</a>
                     </li>
-                    <li class=''>
+                    <li class='#'>
+                        <a class="nav-link" href="/pengaduan">Lihat Pengaduan</a>
+                    </li>
+                    <li class='#'>
                         <a class="nav-link" href="#">Rincian Pengaduan</a>
                     </li>
                 </ul>
@@ -46,7 +50,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="">
+            <li class="nav-item">
                 <a class="nav-link"
                     href="/profile"><i class="fa-solid fa-user"></i> <span>Profile</span></a>
             </li>

@@ -18,7 +18,7 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Lihat Pengaduan</h1>
+                <h1>Pengaduan</h1>
             </div>
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
@@ -33,21 +33,24 @@
                     <div class="row">
                         <div class="col-8">
                             <div class="form-group">
-                                <label>Pengaduan Anda</label>
-                                <textarea id="pengaduanTextarea" class="form-control" data-height="250" readonly></textarea>
+                                <label>Buat Pengaduan Anda</label>
+                                <textarea class="form-control" data-height="250"></textarea>
                             </div>
                         </div>
                         <div class="col-4">
                             <label>Foto Aduan</label>
-                            <img src="{{ asset('images/9440461.jpg') }}" class="img-fluid" alt="...">
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="customFile" accept=".jpg,.gif,.png,.jpeg,.HEIF">
+                                    <label class="custom-file-label" for="customFile">Choose file</label>
+                                </div>
+                            </div>
+                            <img id="img-upload" />
                         </div>
                     </div>
                     <div class="row justify-content-center mt-5">
-                        <div class="col-12 col-md-12 col-sm-12 col-lg-12">
-                            <button id="ubahPengaduanBtn" class="btn btn-primary mt-2" type="button">Ubah Pengaduan</button>
-                            <button class="btn btn-danger mt-2" type="submit">Hapus Pengaduan</button>
-                            <a href="/tambah-pengaduan" class="btn btn-primary mt-2" type="button">Tambah Pengaduan</a>
-                            <button class="btn btn-primary mt-2" type="submit">Kirim Pengaduan</button>
+                        <div class="col-12 col-md-6 text-center">
+                            <a href="#" class="btn btn-primary mt-2" type="button">Buat Pengaduan</a>
                         </div>
                     </div>
                 </div>
@@ -68,10 +71,4 @@
     <!-- Page Specific JS File -->
     <script src="{{ asset('js/page/index-0.js') }}"></script>
     <script src="{{ asset('js/img.js') }}"></script>
-    <script>
-        document.getElementById('ubahPengaduanBtn').addEventListener('click', function() {
-            const textarea = document.getElementById('pengaduanTextarea');
-            textarea.removeAttribute('readonly');
-        });
-    </script>
 @endpush
