@@ -6,9 +6,8 @@
     <title>SIPToko | Login</title>
     <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.4/components/logins/login-9/assets/css/login-9.css"> 
-      <!-- CSS Libraries -->
-    <link rel="stylesheet"
-        href="{{ asset('library/izitoast/dist/css/iziToast.min.css') }}">      
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" href="{{ asset('library/izitoast/dist/css/iziToast.min.css') }}">      
 </head>
 <body>
 
@@ -56,13 +55,13 @@
                 </div>
                 <div class="col-12">
                   <div class="form-floating mb-3">
-                    <input type="password" class="form-control" name="password" id="password" value="" placeholder="Password" required>
-                    <label for="password" class="form-label">Konfirmasi Password</label>
+                    <input type="password" class="form-control" name="confirm_password" id="confirm_password" value="" placeholder="Password" required>
+                    <label for="confirm_password" class="form-label">Konfirmasi Password</label>
                   </div>
                 </div>
                 <div class="col-12">
                   <div class="d-grid">
-                    <button class="btn btn-primary btn-lg text-bold-500" id="toastr-2">Register</button>
+                    <button type="button" class="btn btn-primary btn-lg text-bold-500" id="toastr-2">Register</button>
                   </div>
                 </div>
               </div>
@@ -73,10 +72,21 @@
     </div>
   </div>
 </section>
-    <!-- JS Libraies -->
-  <script src="{{ asset('library/izitoast/dist/js/iziToast.min.js') }}"></script>
+<!-- JS Libraries -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{{ asset('library/izitoast/dist/js/iziToast.min.js') }}"></script>
+<!-- Page Specific JS File -->
+<script src="{{ asset('js/page/modules-toastr.js') }}"></script>
+{{-- <script>
+  "use strict";
 
-    <!-- Page Specific JS File -->
-  <script src="{{ asset('js/page/modules-toastr.js') }}"></script>
+  $("#toastr-2").click(function() {
+    iziToast.success({
+      title: 'Hello, world!',
+      message: 'This awesome plugin is made by iziToast',
+      position: 'topRight'
+    });
+  });
+</script> --}}
 </body>
 </html>
