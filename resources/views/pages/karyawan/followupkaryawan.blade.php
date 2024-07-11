@@ -1,18 +1,13 @@
 @extends('layout.app')
 
-@section('title', 'Follow Up')
+@section('title', 'Follow Up Karyawan')
 
 @push('style')
     <!-- CSS Libraries -->
-    <link rel="stylesheet"
-        href="{{ asset('library/jqvmap/dist/jqvmap.min.css') }}">
-    <link rel="stylesheet"
-        href="{{ asset('library/summernote/dist/summernote-bs4.min.css') }}">
-    <!-- MDB -->
-    <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.min.css"
-    rel="stylesheet"
-    />
+    <link rel="stylesheet" href="{{ asset('library/jqvmap/dist/jqvmap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('library/summernote/dist/summernote-bs4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/timeline.css') }}">
+
 @endpush
 
 @section('main')
@@ -33,73 +28,31 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12">
-                    <!-- Section: Timeline -->
-                        <section class="py-5">
-                        <ul class="timeline-with-icons">
-                            <li class="timeline-item mb-5">
-                            <span class="timeline-icon">
-                                <i class="fas fa-rocket text-primary fa-sm fa-fw"></i>
-                            </span>
-
-                            <h5 class="fw-bold">Our company starts its operations</h5>
-                            <p class="text-muted mb-2 fw-bold">11 March 2020</p>
-                            <p class="text-muted">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
-                                necessitatibus adipisci, ad alias, voluptate pariatur officia
-                                repellendus repellat inventore fugit perferendis totam dolor
-                                voluptas et corrupti distinctio maxime corporis optio?
-                            </p>
-                            </li>
-
-                            <li class="timeline-item mb-5">
-
-                            <span class="timeline-icon">
-                                <i class="fas fa-hand-holding-usd text-primary fa-sm fa-fw"></i>
-                            </span>
-                            <h5 class="fw-bold">First customer</h5>
-                            <p class="text-muted mb-2 fw-bold">19 March 2020</p>
-                            <p class="text-muted">
-                                Quisque ornare dui nibh, sagittis egestas nisi luctus nec. Sed
-                                aliquet laoreet sapien, eget pulvinar lectus maximus vel.
-                                Phasellus suscipit porta mattis.
-                            </p>
-                            </li>
-
-                            <li class="timeline-item mb-5">
-
-                            <span class="timeline-icon">
-                                <i class="fas fa-users text-primary fa-sm fa-fw"></i>
-                            </span>
-                            <h5 class="fw-bold">Our team exceeds 10 people</h5>
-                            <p class="text-muted mb-2 fw-bold">24 June 2020</p>
-                            <p class="text-muted">
-                                Orci varius natoque penatibus et magnis dis parturient montes,
-                                nascetur ridiculus mus. Nulla ullamcorper arcu lacus, maximus
-                                facilisis erat pellentesque nec. Duis et dui maximus dui aliquam
-                                convallis. Quisque consectetur purus erat, et ullamcorper sapien
-                                tincidunt vitae.
-                            </p>
-                            </li>
-
-                            <li class="timeline-item mb-5">
-
-                            <span class="timeline-icon">
-                                <i class="fas fa-money-bill-wave text-primary fa-sm fa-fw"></i>
-                            </span>
-                            <h5 class="fw-bold">Earned the first million $!</h5>
-                            <p class="text-muted mb-2 fw-bold">15 October 2020</p>
-                            <p class="text-muted">
-                                Nulla ac tellus convallis, pulvinar nulla ac, fermentum diam. Sed
-                                et urna sit amet massa dapibus tristique non finibus ligula. Nam
-                                pharetra libero nibh, id feugiat tortor rhoncus vitae. Ut suscipit
-                                vulputate mattis.
-                            </p>
-                            </li>
-                        </ul>
-                        </section>
-                        <!-- Section: Timeline -->
+            <div class="timeline">
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item left">
+                    <span class="icon icon-info icon-lg"><i class="fa-solid fa-bars-progress"></i></span>
+                    <h3 class="my-3 text-primary">Inprogress</h3>
+                    <h6 class="my-3">11-07-2024</h6>
+                    <p>Eeitan exercitation, photo booth et 8-bit kale chips proident chillwave deep v laborum.</p>
+                </div>
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item right">
+                    <span class="icon icon-secondary"><i class="fa-solid fa-spinner"></i></i></span>
+                    <h3 class="my-3 text-primary">Pending</h3>
+                    <h6 class="my-3">11-07-2024</h6>
+                    <p>Bootstrap.end comype your ideas.</p>
+                </div>
+                <!-- Timeline Item 3 -->
+                <div class="timeline-item left">
+                    <span class="icon icon-danger"><i class="fa-solid fa-circle-check"></i></span>
+                    <h3 class="my-3 text-primary">Completed</h3>
+                    <p>Google and by a community of individuals and corporations to address many of the challenges encountered in developing single-page applications.</p>
+                </div>
+            </div>
+            <div class="row justify-content-center mt-5">
+                <div class="col-12 col-md-6 text-center">
+                    <a href="#" class="btn btn-primary mt-2" type="button">Selesaikan dan Tutup Pengaduan</a>
                 </div>
             </div>
         </section>
@@ -107,7 +60,7 @@
 @endsection
 
 @push('scripts')
-    <!-- JS Libraies -->
+    <!-- JS Libraries -->
     <script src="{{ asset('library/simpleweather/jquery.simpleWeather.min.js') }}"></script>
     <script src="{{ asset('library/chart.js/dist/Chart.min.js') }}"></script>
     <script src="{{ asset('library/jqvmap/dist/jquery.vmap.min.js') }}"></script>
