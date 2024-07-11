@@ -16,7 +16,7 @@
             <div class="section-header">
                 <h1>Pengaduan</h1>
             </div>
-            <form action="#" method="post" enctype="multipart/form-data">
+            <form action="{{ route('pengaduan.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-12">
@@ -44,12 +44,13 @@
                                         <label class="custom-file-label" for="foto">Choose file</label>
                                     </div>
                                 </div>
-                                <img id="img-upload" />
+                                <img src="{{ asset('images/img-preview.png') }}" alt="image" class="img-fluid"
+                                    width="200" id="preview">
                             </div>
                         </div>
                         <div class="row justify-content-center mt-5">
                             <div class="col-12 col-md-6 text-center">
-                                <a href="#" class="btn btn-primary mt-2" type="submit">Buat Pengaduan</a>
+                                <button class="btn btn-primary" type="submit">Buat Pengaduan</button>
                             </div>
                         </div>
                     </div>
@@ -70,5 +71,17 @@
 
     <!-- Page Specific JS File -->
     <script src="{{ asset('js/page/index-0.js') }}"></script>
-    <script src="{{ asset('js/img.js') }}"></script>
+    {{-- Preview image --}}
+    <script>
+        foto.onchange = evt => {
+            preview = document.getElementById('preview');
+            // preview.style.display = 'block';
+            const [file] = foto.files
+            if (file) {
+                preview.src = URL.createObjectURL(file)
+            }
+        }
+    </script>
+    <!-- notification -->
+    @include('components.notification')
 @endpush

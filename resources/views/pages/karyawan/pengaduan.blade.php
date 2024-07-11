@@ -23,10 +23,11 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="form-group">
                         <label>Pilih Jenis Pengaduan</label>
-                        <select class="form-control">
-                            <option>Option 1</option>
-                            <option>Option 2</option>
-                            <option>Option 3</option>
+                        <select class="form-control" name="jenis_aduans_id" id="jenis_aduans_id">
+                            <option value="#">Pilih Jenis Pengaduan</option>
+                            @foreach ($jenisAduan as $item)
+                                <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="row">
@@ -35,12 +36,14 @@
                                 <div class="card-header">
                                     <h4>Lihat Aduan</h4>
                                     <div class="card-header-form">
-                                        <button class="btn btn-primary" type="button">Tambah Pengaduan</button>
+                                        {{-- <button class="btn btn-primary" type="button">Tambah Pengaduan</button> --}}
+                                        <a href="{{ route('pengaduan.create') }}" class="btn btn-primary">Tambah
+                                            Pengaduan</a>
                                     </div>
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
-                                        <table class="table-striped table" id="table-1">
+                                        <table class="table-striped table" id="table-aduan">
                                             <thead>
                                                 <tr>
                                                     <th class="text-center">
@@ -55,23 +58,40 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>
-                                                        1
-                                                    </td>
-                                                    <td>Create a mobile app</td>
-                                                    <td>2018-01-20</td>
-                                                    <td>
-                                                        Ujang Maman
-                                                    </td>
-                                                    <td>Rafino</td>
-                                                    <td>
-                                                        <div class="badge badge-success">Completed</div>
-                                                        <div class="badge badge-info">Inprogress</div>
-                                                        <div class="badge badge-warning">Pending</div>
-                                                    </td>
-                                                    <td><a href="/rincian-pengaduan" class="btn btn-primary">Detail</a></td>
-                                                </tr>
+                                                @foreach ($laporan as $index => $item)
+                                                    <tr>
+                                                        <td>
+                                                            {{ $index + 1 }}
+                                                        </td>
+                                                        <td>{{ $item->laporan }}</td>
+                                                        <td>{{ $item->created_at }}</td>
+                                                        <td>
+                                                            {{ $item->userPelapor->name }}
+                                                        </td>
+                                                        <td>
+                                                            @if ($item->userPekerja)
+                                                                {{ $item->userPekerja->name }}
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            @if ($item->status == 'completed')
+                                                                <div class="badge badge-success">Completed</div>
+                                                            @elseif ($item->status == 'in progress')
+                                                                <div class="badge badge-info">Inprogress</div>
+                                                            @elseif ($item->status == 'pending')
+                                                                <div class="badge badge-warning">Pending</div>
+                                                            @else
+                                                                <div class="badge badge-secondary">Unknown Status</div>
+                                                            @endif
+
+                                                        </td>
+                                                        <td><a href="{{ route('pengaduan.edit', $item->id) }}"
+                                                                class="btn btn-primary">Detail</a>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>

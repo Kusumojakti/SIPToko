@@ -12,7 +12,7 @@
 </head>
 
 <body class="bg-primary ">
-    @include('components.notification')
+
     <section class="py-3 py-md-5 py-xl-8">
         <div class="container">
             <div class="row gy-4 align-items-center">
@@ -92,6 +92,8 @@
     </section>
     <!-- JS Libraries -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ asset('library/izitoast/dist/js/iziToast.min.js') }}"></script>
+    @include('components.notification')
     <!-- Page Specific JS File -->
 </body>
 

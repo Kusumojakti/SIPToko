@@ -11,8 +11,9 @@
             <li class="nav-item dropdown">
                 <a href="/dashboard" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
-            <li class="nav-item dropdown">  
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Data Follow Up</span></a>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Data Follow
+                        Up</span></a>
                 <ul class="dropdown-menu">
                     <li class=''>
                         <a class="nav-link" href="#">Detail Komplain</a>
@@ -21,16 +22,16 @@
                         <a class="nav-link" href="#">Aktifitas Komplain</a>
                     </li>
                 </ul>
-            </li> 
+            </li>
 
             <li class="nav-item">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Pengaduan</span></a>
                 <ul class="dropdown-menu">
                     <li class='#'>
-                        <a class="nav-link" href="/tambah-pengaduan">Buat Pengaduan</a>
+                        <a class="nav-link" href="{{ route('pengaduan.create') }}">Buat Pengaduan</a>
                     </li>
                     <li class='#'>
-                        <a class="nav-link" href="/pengaduan">Lihat Pengaduan</a>
+                        <a class="nav-link" href="{{ route('pengaduan.index') }}">Lihat Pengaduan</a>
                     </li>
                     <li class='#'>
                         <a class="nav-link" href="#">Rincian Pengaduan</a>
@@ -51,8 +52,7 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <a class="nav-link"
-                    href="/profile"><i class="fa-solid fa-user"></i> <span>Profile</span></a>
+                <a class="nav-link" href="/profile"><i class="fa-solid fa-user"></i> <span>Profile</span></a>
             </li>
         </ul>
     </aside>

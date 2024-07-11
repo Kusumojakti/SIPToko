@@ -28,9 +28,8 @@ Route::middleware(LoginCheck::class)->group(function () {
     });
 
     Route::middleware('roles:karyawan')->group(function () {
-        // pengaduan | laporan
-        Route::get('/pengaduan', [LaporanController::class, 'index']);
-        Route::get('/tambah-pengaduan', [LaporanController::class, 'create']);
+        Route::resource('pengaduan', LaporanController::class);
+        Route::get('/getbyjenis/{id}', [LaporanController::class, 'getByJenis']);
     });
 
 
@@ -40,10 +39,6 @@ Route::middleware(LoginCheck::class)->group(function () {
 
     Route::get('/followupkaryawan', function () {
         return view('pages.karyawan.followupkaryawan');
-    });
-
-    Route::get('/rincian-pengaduan', function () {
-        return view('pages.karyawan.rincian-aduan');
     });
 
     Route::get('/admin-dashboard', function () {

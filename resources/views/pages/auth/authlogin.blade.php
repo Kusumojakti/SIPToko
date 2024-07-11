@@ -87,6 +87,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Page Specific JS File -->
     {{-- <script src="{{ asset('js/page/modules-toastr.js') }}"></script> --}}
+    <script src="{{ asset('library/izitoast/dist/js/iziToast.min.js') }}"></script>
     @include('components.notification')
 
 </body>

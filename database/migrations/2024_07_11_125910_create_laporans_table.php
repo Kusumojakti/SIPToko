@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('laporans', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('pelapor')->constrained('users');
+            $table->foreignId('pekerja')->nullable()->constrained('users');
             $table->text('laporan');
             $table->foreignId('jenis_aduans_id')->constrained('jenis_aduans')->onDelete('cascade');
             $table->string('foto');
+            $table->enum('status', ['pending', 'in progress', 'completed'])->default('pending');
             $table->timestamps();
         });
     }

@@ -22,27 +22,43 @@
             </div>
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                    <div class="row">
-                        <div class="col-8">
-                            <div class="form-group">
-                                <label>Rincian Aduan</label>
-                                <textarea class="form-control" data-height="250" readonly></textarea>
+                    <form action="{{ route('pengaduan.update', $laporan->id) }}">
+                        @csrf
+                        @method('PUT')
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="form-group">
+                                    <label>Rincian Aduan</label>
+                                    <textarea class="form-control" data-height="250">{{ $laporan->laporan }}</textarea>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <label>Foto Aduan</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="foto"
+                                            accept=".jpg,.gif,.png,.jpeg,.HEIF" name="foto">
+                                        <label class="custom-file-label" for="foto">Choose file</label>
+                                    </div>
+                                </div>
+                                <img src="{{ asset($laporan->foto) }}" alt="image" class="img-fluid" width="200"
+                                    id="preview">
                             </div>
                         </div>
-                        <div class="col-4">
-                            <label>Foto Aduan</label>
-                            <img src="{{ asset('images/9440461.jpg') }}" class="img-fluid" alt="...">
-                        </div>
-                    </div>
-                    <div class="row justify-content-center mt-5">
-                        <div class="col-12 col-md-6 text-center">
-                            <a href="#" class="btn btn-primary mt-2" type="button">Simpan</a>
-                            <a href="#" class="btn btn-danger mt-2" type="button">Hapus</a>
-                        </div>
-                    </div>
+                        <div class="row justify-content-center mt-5">
+                            <div class="col-12 col-md-6 text-center">
+                                <button class="btn btn-primary mt-2" type="submit">Simpan</button>
+                    </form>
+                    <form action="{{ route('pengaduan.destroy', $laporan->id) }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-danger mt-2" type="submit">Hapus</button>
+                    </form>
                 </div>
             </div>
-        </section>
+    </div>
+    </div>
+    </section>
     </div>
 @endsection
 
@@ -57,5 +73,4 @@
 
     <!-- Page Specific JS File -->
     <script src="{{ asset('js/page/index-0.js') }}"></script>
-    <script src="{{ asset('js/img.js') }}"></script>
 @endpush
