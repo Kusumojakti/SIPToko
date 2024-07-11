@@ -17,31 +17,23 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'nik',
         'name',
-        'email',
         'password',
+        'avatar',
+        'role'
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
-
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
+    public function getInitialName()
     {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
+        $name = $this->attributes['name'];
+        $words = explode(' ', $name);
+        $initial = '';
+
+        foreach ($words as $word) {
+            $initial .= strtoupper($word[0]);
+        }
+
+        return $initial;
     }
 }

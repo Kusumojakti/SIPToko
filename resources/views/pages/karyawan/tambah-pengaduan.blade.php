@@ -16,41 +16,45 @@
             <div class="section-header">
                 <h1>Pengaduan</h1>
             </div>
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                    <div class="form-group">
-                        <label>Pilih Jenis Pengaduan</label>
-                        <select class="form-control">
-                            <option>Option 1</option>
-                            <option>Option 2</option>
-                            <option>Option 3</option>
-                        </select>
-                    </div>
-                    <div class="row">
-                        <div class="col-8">
-                            <div class="form-group">
-                                <label>Buat Pengaduan Anda</label>
-                                <textarea class="form-control" data-height="250"></textarea>
-                            </div>
+            <form action="#" method="post" enctype="multipart/form-data">
+                @csrf
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="form-group">
+                            <label>Pilih Jenis Pengaduan</label>
+                            <select class="form-control" name="jenis_aduans_id">
+                                @foreach ($jenisAduan as $item)
+                                    <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                                @endforeach
+                            </select>
                         </div>
-                        <div class="col-4">
-                            <label>Foto Aduan</label>
-                            <div class="input-group">
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="customFile" accept=".jpg,.gif,.png,.jpeg,.HEIF">
-                                    <label class="custom-file-label" for="customFile">Choose file</label>
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="form-group">
+                                    <label>Buat Pengaduan Anda</label>
+                                    <textarea class="form-control" data-height="250" name="laporan"></textarea>
                                 </div>
                             </div>
-                            <img id="img-upload" />
+                            <div class="col-4">
+                                <label>Foto Aduan</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="foto"
+                                            accept=".jpg,.gif,.png,.jpeg,.HEIF" name="foto">
+                                        <label class="custom-file-label" for="foto">Choose file</label>
+                                    </div>
+                                </div>
+                                <img id="img-upload" />
+                            </div>
                         </div>
-                    </div>
-                    <div class="row justify-content-center mt-5">
-                        <div class="col-12 col-md-6 text-center">
-                            <a href="#" class="btn btn-primary mt-2" type="button">Buat Pengaduan</a>
+                        <div class="row justify-content-center mt-5">
+                            <div class="col-12 col-md-6 text-center">
+                                <a href="#" class="btn btn-primary mt-2" type="submit">Buat Pengaduan</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </section>
     </div>
 @endsection

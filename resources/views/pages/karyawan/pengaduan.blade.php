@@ -4,19 +4,11 @@
 
 @push('style')
     <!-- CSS Libraries -->
-    <link rel="stylesheet"
-        href="{{ asset('library/jqvmap/dist/jqvmap.min.css') }}">
-    <link rel="stylesheet"
-        href="{{ asset('library/summernote/dist/summernote-bs4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('library/jqvmap/dist/jqvmap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('library/summernote/dist/summernote-bs4.min.css') }}">
     <!-- quill js -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.quilljs.com/1.3.6/quill.snow.css"
-    />
-    <link
-      href="https://cdn.quilljs.com/1.3.6/quill.core.css"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="https://cdn.quilljs.com/1.3.6/quill.snow.css" />
+    <link href="https://cdn.quilljs.com/1.3.6/quill.core.css" rel="stylesheet" />
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <script src=" https://cdn.jsdelivr.net/npm/quill-image-resize-module@3.0.0/image-resize.min.js"></script>
 @endpush
@@ -48,8 +40,7 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
-                                        <table class="table-striped table"
-                                            id="table-1">
+                                        <table class="table-striped table" id="table-1">
                                             <thead>
                                                 <tr>
                                                     <th class="text-center">
@@ -79,8 +70,7 @@
                                                         <div class="badge badge-info">Inprogress</div>
                                                         <div class="badge badge-warning">Pending</div>
                                                     </td>
-                                                    <td><a href="/rincian-pengaduan"
-                                                            class="btn btn-primary">Detail</a></td>
+                                                    <td><a href="/rincian-pengaduan" class="btn btn-primary">Detail</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -114,15 +104,15 @@
                             <div class="mb-3">
                                 <label for="add_kodeBrg" class="form-label">Dikomplain oleh</label>
                                 <input type="text" class="form-control" id="add_kodeBrg" name="kodeBrg"readonly>
-                            </div>                           
-                                <div class="form-group mb-3">
-                                    <label>Status</label>
-                                    <select class="form-control">
-                                        <option>Open</option>
-                                        <option>Inprogress</option>
-                                        <option>Pending</option>
-                                    </select>
-                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label>Status</label>
+                                <select class="form-control">
+                                    <option>Open</option>
+                                    <option>Inprogress</option>
+                                    <option>Pending</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-primary" type="submit">Ubah</button>
