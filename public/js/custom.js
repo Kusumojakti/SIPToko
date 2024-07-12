@@ -41,8 +41,9 @@ $(document).ready(function () {
         var id = $(this).data('id');
         console.log(id);
         $.get('/pengaduan/' + id, function (data) {
+            console.log(data.status);
             $("#dataLaporan").val(data.laporan);
-            $("#namaPekerja").val(data.user_pekerja ? data.laporan.user_pekerja.name : '-');
+            $("#namaPekerja").val(data.user_pekerja ? data.user_pekerja.name : '-');
             $("#namaPelapor").val(data.user_pelapor.name);
             $('.status-aduan').val(data.status);
             $('#form-edit-pengaduan').attr("action", "/data-pengaduan/" + id);

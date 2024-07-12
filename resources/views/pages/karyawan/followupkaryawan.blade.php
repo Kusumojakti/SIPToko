@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="{{ asset('library/jqvmap/dist/jqvmap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('library/summernote/dist/summernote-bs4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/timeline.css') }}">
-
 @endpush
 
 @section('main')
@@ -16,46 +15,43 @@
             <div class="section-header">
                 <h1>Follow Up Pengaduan</h1>
             </div>
-            <div class="row">
-                <div class="col-12 col-md-12 col-sm-12">
-                    <div class="form-group">
-                        <label>Pilih Jenis Pengaduan</label>
-                        <select class="form-control">
-                            <option>Option 1</option>
-                            <option>Option 2</option>
-                            <option>Option 3</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
             <div class="timeline">
-                <!-- Timeline Item 1 -->
                 <div class="timeline-item left">
-                    <span class="icon icon-info icon-lg"><i class="fa-solid fa-bars-progress"></i></span>
-                    <h3 class="my-3 text-primary">Inprogress</h3>
-                    <h6 class="my-3">11-07-2024</h6>
-                    <p>Eeitan exercitation, photo booth et 8-bit kale chips proident chillwave deep v laborum.</p>
+                    <span class="icon icon-info icon-lg"><i class="fa-solid fa-folder-open"></i></span>
+                    <h3 class="my-3 text-primary">Open</h3>
+                    <h6 class="my-3">{{ $history[0]->laporan->created_at }}</h6>
+                    <p>{{ $history[0]->laporan->laporan }}</p>
                 </div>
-                <!-- Timeline Item 2 -->
-                <div class="timeline-item right">
-                    <span class="icon icon-secondary"><i class="fa-solid fa-spinner"></i></i></span>
-                    <h3 class="my-3 text-primary">Pending</h3>
-                    <h6 class="my-3">11-07-2024</h6>
-                    <p>Bootstrap.end comype your ideas.</p>
-                </div>
-                <!-- Timeline Item 3 -->
-                <div class="timeline-item left">
-                    <span class="icon icon-danger"><i class="fa-solid fa-circle-check"></i></span>
-                    <h3 class="my-3 text-primary">Completed</h3>
-                    <p>Google and by a community of individuals and corporations to address many of the challenges encountered in developing single-page applications.</p>
-                </div>
+                @foreach ($history as $index => $item)
+                    @if (($index + 1) % 2 == 0)
+                        <div class="timeline-item left">
+                        @else
+                            <div class="timeline-item right">
+                    @endif
+                    @if ($item->after == 'open')
+                        <span class="icon icon-info icon-lg"><i class="fa-solid fa-folder-open"></i></span>
+                        <h3 class="my-3 text-primary">Open</h3>
+                    @elseif ($item->after == 'completed')
+                        <span class="icon icon-info icon-lg"><i class="fa-solid  fa-circle-check"></i></span>
+                        <h3 class="my-3 text-primary">Completed</h3>
+                    @elseif ($item->after == 'in progress')
+                        <span class="icon icon-info icon-lg"><i class="fa-solid fa-bars-progress"></i></span>
+                        <h3 class="my-3 text-primary">Inprogress</h3>
+                    @elseif ($item->after == 'pending')
+                        <span class="icon icon-info icon-lg"><i class="fa-solid  fa-spinner"></i></span>
+                        <h3 class="my-3 text-primary">Pending</h3>
+                    @endif
+                    <h6 class="my-3">{{ $item->created_at }}</h6>
+                    <p>{{ $item->note }}</p>
             </div>
-            <div class="row justify-content-center mt-5">
-                <div class="col-12 col-md-6 text-center">
-                    <a href="#" class="btn btn-primary mt-2" type="button">Selesaikan dan Tutup Pengaduan</a>
-                </div>
-            </div>
-        </section>
+            @endforeach
+    </div>
+    <div class="row justify-content-center mt-5">
+        <div class="col-12 col-md-6 text-center">
+            <a href="#" class="btn btn-primary mt-2" type="button">Selesaikan dan Tutup Pengaduan</a>
+        </div>
+    </div>
+    </section>
     </div>
 @endsection
 

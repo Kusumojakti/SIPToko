@@ -88,15 +88,21 @@
                                                         </td>
                                                         <td>
                                                             <div class="dropdown d-inline">
-                                                                <button class="btn btn-primary dropdown-toggle" type="button"
-                                                                    data-toggle="dropdown" aria-haspopup="true"
-                                                                    aria-expanded="false" data-bs-toggle="dropdown">
+                                                                <button class="btn btn-primary dropdown-toggle"
+                                                                    type="button" data-toggle="dropdown"
+                                                                    aria-haspopup="true" aria-expanded="false"
+                                                                    data-bs-toggle="dropdown">
                                                                     Detail
                                                                 </button>
                                                                 <div class="dropdown-menu">
-                                                                    <a class="dropdown-item has-icon" href="{{ route('pengaduan.edit', $item->id) }}"
-                                                                       ><i class="fa-regular fa-pen-to-square"></i>Edit Data</a>
-                                                                    <a class="dropdown-item has-icon" href="/followupkaryawan"><i class="fa-solid fa-circle-info"></i>Follow Up Laporan</a>
+                                                                    <a class="dropdown-item has-icon"
+                                                                        href="{{ route('pengaduan.edit', $item->id) }}"><i
+                                                                            class="fa-regular fa-pen-to-square"></i>Edit
+                                                                        Data</a>
+                                                                    <a class="dropdown-item has-icon"
+                                                                        href="/followupkaryawan/{{ $item->id }}"><i
+                                                                            class="fa-solid fa-circle-info"></i>Follow Up
+                                                                        Laporan</a>
                                                                 </div>
                                                         </td>
                                                     </tr>

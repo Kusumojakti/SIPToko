@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DataPengaduan;
+use App\Http\Controllers\FollowUpController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\UsersController;
 use App\Http\Middleware\LoginCheck;
+use App\Models\FollowUpLaporan;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/login', function () {
@@ -33,6 +35,8 @@ Route::middleware(LoginCheck::class)->group(function () {
         Route::resource('pengaduan', LaporanController::class);
         Route::get('/getbyjenis/{id}', [LaporanController::class, 'getByJenis']);
         Route::get('/all-laporan', [LaporanController::class, 'getall']);
+
+        Route::get('/followupkaryawan/{id}', [FollowUpController::class, 'index']);
     });
 
     Route::middleware('roles:pemeliharaan,karyawan')->group(function () {
@@ -45,9 +49,6 @@ Route::middleware(LoginCheck::class)->group(function () {
         return view('pages.profile');
     });
 
-    Route::get('/followupkaryawan', function () {
-        return view('pages.karyawan.followupkaryawan');
-    });
 
     Route::get('/admin-dashboard', function () {
         return view('pages.pemeliharaan.dashboard-admin');

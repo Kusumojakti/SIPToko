@@ -80,7 +80,8 @@
                                                         </button>
                                                         <div class="dropdown-menu">
                                                             <a class="dropdown-item has-icon edit-data-pengaduan"
-                                                                data-id="{{ $item->id }}" data-toggle="modal" data-target="#modal-edit-pengaduan"><i
+                                                                data-id="{{ $item->id }}" data-toggle="modal"
+                                                                data-target="#modal-edit-pengaduan"><i
                                                                     class="fa-regular fa-pen-to-square"></i>
                                                                 Follow Up Pengaduan</a>
                                                         </div>
@@ -108,7 +109,6 @@
                     <form method="POST" id="form-edit-pengaduan">
                         @csrf
                         @method('PUT')
-
                         <div class="modal-body">
                             <div class="mb-3">
                                 <label for="dataLaporan" class="form-label">Pengaduan</label>
@@ -121,6 +121,10 @@
                             <div class="mb-3">
                                 <label for="namaPelapor" class="form-label">Dikomplain oleh</label>
                                 <input type="text" class="form-control" id="namaPelapor" name="namaPelapor"readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label for="note" class="form-label">Notes</label>
+                                <input type="text" class="form-control" id="note" name="note">
                             </div>
                             <div class="form-group mb-3">
                                 <label>Status</label>

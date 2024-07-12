@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FollowUpLaporan;
 use App\Models\JenisAduan;
 use App\Models\Laporan;
 use Illuminate\Http\Request;
@@ -60,6 +61,7 @@ class DataPengaduan extends Controller
         try {
             $validator = Validator::make($request->all(), [
                 'status' => 'required',
+                'note' => 'nullable'
             ]);
 
             if ($validator->fails()) {
@@ -68,6 +70,14 @@ class DataPengaduan extends Controller
 
             $laporan = Laporan::findOrFail($id);
             if ($laporan) {
+
+                $history = FollowUpLaporan::create([
+                    'laporans_id' => $id,
+                    'before' => $laporan->status,
+                    'after' => $request->status,
+                    'note' => $request->note
+                ]);
+
                 $laporan->update([
                     'status' => $request->status,
                     'pekerja' => Auth::user()->id
