@@ -67,7 +67,7 @@
                                                         <a class="dropdown-item has-icon edit-user"
                                                             data-id="{{ $item->id }}"><i
                                                                 class="fa-regular fa-pen-to-square"></i>Edit</a>
-                                                        <form action="{{ route('users.destroy', $item->id) }}"
+                                                        <form action="{{ route('users.destroy', $item->id + 1) }}"
                                                             method="POST" id="hapus-user">
                                                             @csrf
                                                             @method('DELETE')

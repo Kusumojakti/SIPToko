@@ -16,11 +16,13 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         User::factory()->create([
+            'nik' => '12345678',
             'name' => 'Danu Dwiki Laksana',
             'role' => 'pemeliharaan'
         ]);
 
         User::factory()->create([
+            'nik' => '87654321',
             'name' => 'aqsha',
             'role' => 'karyawan'
         ]);

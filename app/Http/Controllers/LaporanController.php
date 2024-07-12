@@ -94,7 +94,6 @@ class LaporanController extends Controller
     {
         try {
             $validator = Validator::make($request->all(), [
-                'jenis_aduans_id' => 'required|exists:jenis_aduans,id',
                 'laporan' => 'required',
                 'foto' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
             ]);

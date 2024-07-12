@@ -109,6 +109,7 @@ class UsersController extends Controller
     public function destroy($id)
     {
         $user = User::findOrFail($id);
+        // dd($user);
         $user->delete();
         return redirect()->back()->with(['success' => 'Berhasil Menghapus Data']);
     }
