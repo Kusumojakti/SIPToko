@@ -19,38 +19,53 @@
                 <div class="timeline-item left">
                     <span class="icon icon-info icon-lg"><i class="fa-solid fa-folder-open"></i></span>
                     <h3 class="my-3 text-primary">Open</h3>
-                    <h6 class="my-3">{{ $history[0]->laporan->created_at }}</h6>
-                    <p>{{ $history[0]->laporan->laporan }}</p>
+                    <h6 class="my-3">{{ $laporan->created_at }}</h6>
+                    <p>{{ $laporan->laporan }}</p>
                 </div>
-                @foreach ($history as $index => $item)
-                    @if (($index + 1) % 2 == 0)
-                        <div class="timeline-item left">
-                        @else
-                            <div class="timeline-item right">
-                    @endif
-                    @if ($item->after == 'open')
-                        <span class="icon icon-info icon-lg"><i class="fa-solid fa-folder-open"></i></span>
-                        <h3 class="my-3 text-primary">Open</h3>
-                    @elseif ($item->after == 'completed')
-                        <span class="icon icon-info icon-lg"><i class="fa-solid  fa-circle-check"></i></span>
-                        <h3 class="my-3 text-primary">Completed</h3>
-                    @elseif ($item->after == 'in progress')
-                        <span class="icon icon-info icon-lg"><i class="fa-solid fa-bars-progress"></i></span>
-                        <h3 class="my-3 text-primary">Inprogress</h3>
-                    @elseif ($item->after == 'pending')
-                        <span class="icon icon-info icon-lg"><i class="fa-solid  fa-spinner"></i></span>
-                        <h3 class="my-3 text-primary">Pending</h3>
-                    @endif
-                    <h6 class="my-3">{{ $item->created_at }}</h6>
-                    <p>{{ $item->note }}</p>
+                @if (count($history) != 0)
+                    @foreach ($history as $index => $item)
+                        @if (($index + 1) % 2 == 0)
+                            <div class="timeline-item left">
+                            @else
+                                <div class="timeline-item right">
+                        @endif
+                        @if ($item->after == 'open')
+                            <span class="icon icon-info icon-lg"><i class="fa-solid fa-folder-open"></i></span>
+                            <h3 class="my-3 text-primary">Open</h3>
+                        @elseif ($item->after == 'completed')
+                            <span class="icon icon-info icon-lg"><i class="fa-solid  fa-circle-check"></i></span>
+                            <h3 class="my-3 text-primary">Completed</h3>
+                        @elseif ($item->after == 'in progress')
+                            <span class="icon icon-info icon-lg"><i class="fa-solid fa-bars-progress"></i></span>
+                            <h3 class="my-3 text-primary">Inprogress</h3>
+                        @elseif ($item->after == 'pending')
+                            <span class="icon icon-info icon-lg"><i class="fa-solid  fa-spinner"></i></span>
+                            <h3 class="my-3 text-primary">Pending</h3>
+                        @endif
+                        <h6 class="my-3">{{ $item->created_at }}</h6>
+                        <p>{{ $item->note }}</p>
             </div>
             @endforeach
+            @endif
     </div>
-    <div class="row justify-content-center mt-5">
-        <div class="col-12 col-md-6 text-center">
-            <a href="#" class="btn btn-primary mt-2" type="button">Selesaikan dan Tutup Pengaduan</a>
-        </div>
-    </div>
+    @php
+        $lastStatus = '';
+        if (count($history) != 0) {
+            $lastIndex = count($history);
+            $lastStatus = $history[$lastIndex - 1]->after;
+        }
+    @endphp
+    @if ($lastStatus !== 'completed')
+        <form action="/laporan-selesai/{{ $laporan->id }}" method="post">
+            @csrf
+            @method('PUT')
+            <div class="row justify-content-center mt-5">
+                <div class="col-12 col-md-6 text-center">
+                    <button class="btn btn-primary mt-2" type="submit">Selesaikan dan Tutup Pengaduan</button>
+                </div>
+            </div>
+        </form>
+    @endif
     </section>
     </div>
 @endsection

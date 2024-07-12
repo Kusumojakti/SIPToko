@@ -61,9 +61,10 @@ class UsersController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(User $user)
+    public function show($id)
     {
-        //
+        $user = User::findOrFail($id);
+        return response()->json($user);
     }
 
     /**
@@ -77,16 +78,38 @@ class UsersController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
-        //
+        try {
+            $validator = Validator::make($request->all(), [
+                'name' => 'required'
+            ]);
+
+            if ($validator->fails()) {
+                return redirect()->back()->withErrors($validator)->withInput();
+            }
+
+            $user = User::findOrFail($id);
+
+            if ($user) {
+                $user->update([
+                    'name' => $request->name
+                ]);
+
+                return redirect()->back()->with(['success' => 'Berhasil update data']);
+            }
+        } catch (\Throwable $th) {
+            return redirect()->back()->withErrors($th->getMessage());
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->delete();
+        return redirect()->back()->with(['success' => 'Berhasil Menghapus Data']);
     }
 }

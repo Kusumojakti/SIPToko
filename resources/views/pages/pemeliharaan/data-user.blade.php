@@ -64,11 +64,18 @@
                                                         Detail
                                                     </button>
                                                     <div class="dropdown-menu">
-                                                        <a class="dropdown-item has-icon" data-target="#editdata"
-                                                            data-toggle="modal"><i
+                                                        <a class="dropdown-item has-icon edit-user"
+                                                            data-id="{{ $item->id }}"><i
                                                                 class="fa-regular fa-pen-to-square"></i>Edit</a>
-                                                        <a class="dropdown-item has-icon" href="#"><i
-                                                                class="fa-solid fa-trash"></i>Hapus</a>
+                                                        <form action="{{ route('users.destroy', $item->id) }}"
+                                                            method="POST" id="hapus-user">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <a
+                                                                class="dropdown-item has-icon"onclick="document.getElementById('hapus-user').submit(); return false;"><i
+                                                                    class="fa-solid fa-trash"></i>Hapus</a>
+
+                                                        </form>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -82,23 +89,25 @@
             </div>
         </section>
         <!-- modal edit data -->
-        <div class="modal fade" id="editdata" aria-hidden="true" aria-labelledby="editdata" tabindex="-1">
+        <div class="modal fade" id="editUser" aria-hidden="true" aria-labelledby="editUser" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title fs-5" id="exampleModalToggleLabel">Edit Data User</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form action="">
+                    <form method="POST" id="form-edit-user">
+                        @csrf
+                        @method('PUT')
                         <div class="modal-body">
                             <div class="mb-3">
-                                <label for="add_kodeBrg" class="form-label">Nama</label>
-                                <input type="text" class="form-control" id="add_kodeBrg" name="kodeBrg"
+                                <label for="namaUser" class="form-label">Nama</label>
+                                <input type="text" class="form-control" id="namaUser" name="name"
                                     placeholder="Masukkan Pengaduan Anda" required>
                             </div>
                             <div class="mb-3">
-                                <label for="add_kodeBrg" class="form-label">Role</label>
-                                <input type="text" class="form-control" id="add_kodeBrg" name="kodeBrg" readonly>
+                                <label for="roleUser" class="form-label">Role</label>
+                                <input type="text" class="form-control" id="roleUser" name="role" readonly>
                             </div>
                         </div>
                         <div class="modal-footer">

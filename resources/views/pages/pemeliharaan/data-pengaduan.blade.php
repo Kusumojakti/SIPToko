@@ -132,7 +132,6 @@
                                     <option value="open">Open</option>
                                     <option value="pending">Pending</option>
                                     <option value="in progress">Inprogress</option>
-                                    <option value="completed">Completed</option>
                                 </select>
                             </div>
                         </div>

@@ -16,7 +16,9 @@ class DataPengaduan extends Controller
      */
     public function index()
     {
-        $laporan = Laporan::with('userPelapor', 'userPekerja', 'jenisAduan')->get();
+        $laporan = Laporan::with('userPelapor', 'userPekerja', 'jenisAduan')
+            ->where('laporans.status', '<>', 'completed')
+            ->get();
         $jenisAduan = JenisAduan::all();
         return view('pages.pemeliharaan.data-pengaduan', compact('laporan', 'jenisAduan'));
     }

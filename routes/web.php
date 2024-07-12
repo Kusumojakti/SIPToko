@@ -37,6 +37,7 @@ Route::middleware(LoginCheck::class)->group(function () {
         Route::get('/all-laporan', [LaporanController::class, 'getall']);
 
         Route::get('/followupkaryawan/{id}', [FollowUpController::class, 'index']);
+        Route::put('/laporan-selesai/{id}', [FollowUpController::class, 'tutupLaporan']);
     });
 
     Route::middleware('roles:pemeliharaan,karyawan')->group(function () {
@@ -47,14 +48,5 @@ Route::middleware(LoginCheck::class)->group(function () {
 
     Route::get('/profile', function () {
         return view('pages.profile');
-    });
-
-
-    Route::get('/admin-dashboard', function () {
-        return view('pages.pemeliharaan.dashboard-admin');
-    });
-
-    Route::get('/followup', function () {
-        return view('pages.pemeliharaan.follow-up');
     });
 });

@@ -37,17 +37,27 @@ $(document).ready(function () {
         }
     })
 
+    // edit data pengaduan
     $('.edit-data-pengaduan').click(function () {
         var id = $(this).data('id');
-        console.log(id);
         $.get('/pengaduan/' + id, function (data) {
-            console.log(data.status);
             $("#dataLaporan").val(data.laporan);
             $("#namaPekerja").val(data.user_pekerja ? data.user_pekerja.name : '-');
             $("#namaPelapor").val(data.user_pelapor.name);
             $('.status-aduan').val(data.status);
             $('#form-edit-pengaduan').attr("action", "/data-pengaduan/" + id);
             $('#modal-edit-pengaduan').modal('show');
+        });
+    })
+
+    // edit data user
+    $('.edit-user').click(function () {
+        var id = $(this).data('id');
+        $.get('/users/' + id, function (data) {
+            $("#namaUser").val(data.name);
+            $("#roleUser").val(data.role);
+            $('#form-edit-user').attr("action", "/users/" + id);
+            $('#editUser').modal('show');
         });
     })
 
