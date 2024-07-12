@@ -120,8 +120,7 @@ class LaporanController extends Controller
     public function destroy($id)
     {
         $laporan = Laporan::findOrFail($id);
-        $filepath = public_path($laporan->foto);
-        File::delete($filepath);
+        File::delete(public_path('images/laporan/' . $laporan->foto));
         $laporan->delete();
 
         return redirect('/pengaduan')->with(['success' => 'Berhasil Menghapus Data']);

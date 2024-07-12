@@ -4,19 +4,11 @@
 
 @push('style')
     <!-- CSS Libraries -->
-    <link rel="stylesheet"
-        href="{{ asset('library/jqvmap/dist/jqvmap.min.css') }}">
-    <link rel="stylesheet"
-        href="{{ asset('library/summernote/dist/summernote-bs4.min.css') }}">
-        <!-- quill js -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.quilljs.com/1.3.6/quill.snow.css"
-    />
-    <link
-      href="https://cdn.quilljs.com/1.3.6/quill.core.css"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="{{ asset('library/jqvmap/dist/jqvmap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('library/summernote/dist/summernote-bs4.min.css') }}">
+    <!-- quill js -->
+    <link rel="stylesheet" href="https://cdn.quilljs.com/1.3.6/quill.snow.css" />
+    <link href="https://cdn.quilljs.com/1.3.6/quill.core.css" rel="stylesheet" />
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <script src=" https://cdn.jsdelivr.net/npm/quill-image-resize-module@3.0.0/image-resize.min.js"></script>
 @endpush
@@ -36,11 +28,11 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label>Nama</label>
-                                <input type="text"class="form-control">
+                                <input type="text"class="form-control" value="{{ Auth::user()->name }}">
                             </div>
                             <div class="form-group">
                                 <label>NIK</label>
-                                <input type="text"class="form-control">
+                                <input type="text"class="form-control" value="{{ Auth::user()->nik }}">
                             </div>
                         </div>
                     </div>
@@ -48,7 +40,7 @@
             </div>
             <div class="row justify-content-end mt-3">
                 <div class="col-6 d-flex justify-content-end">
-                    <a href="#" class="btn btn-danger" type="submit">Logout</a>
+                    <a href="/logout" class="btn btn-danger" type="submit">Logout</a>
                 </div>
             </div>
         </section>

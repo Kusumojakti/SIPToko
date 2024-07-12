@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DataPengaduan;
 use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\MainController;
 use App\Http\Controllers\UsersController;
 use App\Http\Middleware\LoginCheck;
 use Illuminate\Support\Facades\Route;
@@ -23,14 +25,18 @@ Route::get('logout', [AuthController::class, 'logout']);
 
 Route::middleware(LoginCheck::class)->group(function () {
 
-    Route::get('/', function () {
-        return view('pages.dashboard');
-    });
 
-    Route::middleware('roles:karyawan')->group(function () {
+
+    Route::get('/', [MainController::class, 'index']);
+
+    Route::middleware('roles:karyawan,pemeliharaan')->group(function () {
         Route::resource('pengaduan', LaporanController::class);
         Route::get('/getbyjenis/{id}', [LaporanController::class, 'getByJenis']);
         Route::get('/all-laporan', [LaporanController::class, 'getall']);
+    });
+
+    Route::middleware('roles:pemeliharaan,pemeliharaan')->group(function () {
+        Route::resource('data-pengaduan', DataPengaduan::class);
     });
 
 
@@ -44,10 +50,6 @@ Route::middleware(LoginCheck::class)->group(function () {
 
     Route::get('/admin-dashboard', function () {
         return view('pages.pemeliharaan.dashboard-admin');
-    });
-
-    Route::get('/data-pengaduan', function () {
-        return view('pages.pemeliharaan.data-pengaduan');
     });
 
     Route::get('/data-user', function () {

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('laporan');
             $table->foreignId('jenis_aduans_id')->constrained('jenis_aduans')->onDelete('cascade');
             $table->string('foto');
-            $table->enum('status', ['pending', 'in progress', 'completed'])->default('pending');
+            $table->enum('status', ['open', 'pending', 'in progress', 'completed'])->default('open');
             $table->timestamps();
         });
     }

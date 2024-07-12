@@ -26,7 +26,7 @@
                                     <h4>Open</h4>
                                 </div>
                                 <div class="card-body">
-                                    10
+                                    {{ $laporan[0]['jumlah'] }}
                                 </div>
                             </div>
                         </div>
@@ -41,7 +41,7 @@
                                     <h4>In Progress</h4>
                                 </div>
                                 <div class="card-body">
-                                    42
+                                    {{ $laporan[2]['jumlah'] }}
                                 </div>
                             </div>
                         </div>
@@ -56,7 +56,7 @@
                                     <h4>Pending</h4>
                                 </div>
                                 <div class="card-body">
-                                    1,201
+                                    {{ $laporan[1]['jumlah'] }}
                                 </div>
                             </div>
                         </div>
@@ -71,7 +71,7 @@
                                     <h4>Terselesaikan</h4>
                                 </div>
                                 <div class="card-body">
-                                    47
+                                    {{ $laporan[3]['jumlah'] }}
                                 </div>
                             </div>
                         </div>

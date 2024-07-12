@@ -76,10 +76,12 @@
                                                             @endif
                                                         </td>
                                                         <td>
-                                                            @if ($item->status == 'completed')
+                                                            @if ($item->status == 'open')
+                                                                <div class="badge badge-primary">Open</div>
+                                                            @elseif ($item->status == 'completed')
                                                                 <div class="badge badge-success">Completed</div>
                                                             @elseif ($item->status == 'in progress')
-                                                                <div class="badge badge-info">Inprogress</div>
+                                                                <div class="badge badge-danger">Inprogress</div>
                                                             @elseif ($item->status == 'pending')
                                                                 <div class="badge badge-warning">Pending</div>
                                                             @else

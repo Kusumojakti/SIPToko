@@ -33,9 +33,6 @@
                     <li class='#'>
                         <a class="nav-link" href="{{ route('pengaduan.index') }}">Lihat Pengaduan</a>
                     </li>
-                    <li class='#'>
-                        <a class="nav-link" href="#">Rincian Pengaduan</a>
-                    </li>
                 </ul>
             </li>
 
