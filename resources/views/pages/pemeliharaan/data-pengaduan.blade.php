@@ -80,7 +80,7 @@
                                                         </button>
                                                         <div class="dropdown-menu">
                                                             <a class="dropdown-item has-icon edit-data-pengaduan"
-                                                                data-id="{{ $item->id }}"><i
+                                                                data-id="{{ $item->id }}" data-toggle="modal" data-target="#modal-edit-pengaduan"><i
                                                                     class="fa-regular fa-pen-to-square"></i>
                                                                 Follow Up Pengaduan</a>
                                                         </div>
