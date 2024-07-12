@@ -30,6 +30,7 @@ Route::middleware(LoginCheck::class)->group(function () {
     Route::middleware('roles:karyawan')->group(function () {
         Route::resource('pengaduan', LaporanController::class);
         Route::get('/getbyjenis/{id}', [LaporanController::class, 'getByJenis']);
+        Route::get('/all-laporan', [LaporanController::class, 'getall']);
     });
 
 

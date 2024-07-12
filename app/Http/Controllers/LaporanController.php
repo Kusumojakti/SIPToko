@@ -47,14 +47,14 @@ class LaporanController extends Controller
                 return redirect()->back()->withErrors($validator);
             }
 
-            // save images
+            // change file name
             $imageName = time() . '.' . $request->foto->extension();
 
             $laporan = Laporan::create([
                 'pelapor' => Auth::user()->id,
                 'laporan' => $request->laporan,
                 'jenis_aduans_id' => $request->jenis_aduans_id,
-                'foto' => 'images/laporan/' . $imageName
+                'foto' =>  $imageName
             ]);
 
             if ($laporan) {
@@ -62,7 +62,7 @@ class LaporanController extends Controller
                 return redirect('/pengaduan')->with(['success' => 'Berhasil Melaporkan']);
             }
         } catch (\Throwable $th) {
-            return redirect()->back()->withErrors($th->getMessage())->withInput();
+            return redirect()->back()->withErrors($th->getMessage());
         }
     }
 
@@ -87,9 +87,31 @@ class LaporanController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Laporan $laporan)
+    public function update(Request $request, $id)
     {
-        //
+        try {
+            $validator = Validator::make($request->all(), [
+                'jenis_aduans_id' => 'required|exists:jenis_aduans,id',
+                'laporan' => 'required',
+                'foto' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
+            ]);
+            $data = $request->all();
+
+            $laporan = Laporan::findOrFail($id);
+            if ($laporan) {
+                if ($request->has('foto')) {
+                    File::delete(public_path('images/laporan/' . $laporan->foto));
+                    $imageName = time() . '.' . $request->foto->extension();
+                    $request->foto->move(public_path('images/laporan'), $imageName);
+                    $data['foto'] = $imageName;
+                }
+                $laporan->update($data);
+
+                return redirect('/pengaduan')->with(['success' => 'Berhasil update data']);
+            }
+        } catch (\Throwable $th) {
+            return redirect()->back()->withErrors($th->getMessage());
+        }
     }
 
     /**
@@ -115,7 +137,13 @@ class LaporanController extends Controller
                 ->get();
             return response()->json($laporan);
         } catch (\Throwable $th) {
-            return redirect()->back()->withErrors($th->getMessage())->withInput();
+            return redirect()->back()->withErrors($th->getMessage());
         }
+    }
+
+    public function getall()
+    {
+        $laporan = Laporan::with('userPelapor', 'userPekerja', 'jenisAduan')->get();
+        return response()->json($laporan);
     }
 }

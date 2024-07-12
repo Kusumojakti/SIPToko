@@ -24,7 +24,7 @@
                     <div class="form-group">
                         <label>Pilih Jenis Pengaduan</label>
                         <select class="form-control" name="jenis_aduans_id" id="jenis_aduans_id">
-                            <option value="#">Pilih Jenis Pengaduan</option>
+                            <option value="#">Semua Jenis Pengaduan</option>
                             @foreach ($jenisAduan as $item)
                                 <option value="{{ $item->id }}">{{ $item->nama }}</option>
                             @endforeach

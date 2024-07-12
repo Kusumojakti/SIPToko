@@ -22,14 +22,15 @@
             </div>
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                    <form action="{{ route('pengaduan.update', $laporan->id) }}">
+                    <form action="{{ route('pengaduan.update', $laporan->id) }}" method="POST"
+                        enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="row">
                             <div class="col-8">
                                 <div class="form-group">
                                     <label>Rincian Aduan</label>
-                                    <textarea class="form-control" data-height="250">{{ $laporan->laporan }}</textarea>
+                                    <textarea class="form-control" data-height="250" name="laporan">{{ $laporan->laporan }}</textarea>
                                 </div>
                             </div>
                             <div class="col-4">
@@ -41,8 +42,8 @@
                                         <label class="custom-file-label" for="foto">Choose file</label>
                                     </div>
                                 </div>
-                                <img src="{{ asset($laporan->foto) }}" alt="image" class="img-fluid" width="200"
-                                    id="preview">
+                                <img src="{{ asset('images/laporan/' . $laporan->foto) }}" alt="image" class="img-fluid"
+                                    width="200" id="preview">
                             </div>
                         </div>
                         <div class="row justify-content-center mt-5">
