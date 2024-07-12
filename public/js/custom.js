@@ -146,19 +146,31 @@ $(document).ready(function () {
                     statusBadge = '<div class="badge badge-secondary">Unknown Status</div>';
                     break;
             }
-            var editButton = $('<a>')
-                .attr('href', '/pengaduan/' + element.id + '/edit') // Replace with actual route and $item->id
-                .addClass('btn btn-primary')
-                .text('Detail');
 
-            var cell = $('<td>').append(editButton);
+            var menu = `<div class="dropdown d-inline">
+                            <button class="btn btn-primary dropdown-toggle"
+                                type="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false"
+                                data-bs-toggle="dropdown">
+                                Detail
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item has-icon"
+                                    href="/pengaduan/`+ element.id + `/edit"><i
+                                        class="fa-regular fa-pen-to-square"></i>Edit
+                                    Data</a>
+                                <a class="dropdown-item has-icon"
+                                    href="/followupkaryawan/`+ element.id + `"><i
+                                        class="fa-solid fa-circle-info"></i>Follow Up
+                                    Laporan</a>
+                            </div>`;
             newRow.append('<td>' + (index + 1) + '</td>');
             newRow.append('<td>' + element.laporan + '</td>');
             newRow.append('<td>' + formatTime(element.created_at) + '</td>');
             newRow.append('<td>' + element.user_pelapor.name + '</td>');
             newRow.append('<td>' + content + '</td>');
             newRow.append('<td>' + statusBadge + '</td>');
-            newRow.append(cell);
+            newRow.append('<td>' + menu + '</td>');
 
             table.append(newRow);
         });
