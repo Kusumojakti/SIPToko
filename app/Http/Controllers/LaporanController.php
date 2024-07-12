@@ -17,7 +17,7 @@ class LaporanController extends Controller
      */
     public function index()
     {
-        $laporan = Laporan::with('userPelapor', 'userPekerja', 'jenisAduan')->simplePaginate(10);
+        $laporan = Laporan::with('userPelapor', 'userPekerja', 'jenisAduan')->get();
         $jenisAduan = JenisAduan::all();
         return view('pages.karyawan.pengaduan', compact('laporan', 'jenisAduan'));
     }
@@ -139,7 +139,7 @@ class LaporanController extends Controller
                 ->whereHas('jenisAduan', function ($query) use ($jenis) {
                     $query->where('jenis_aduans.id', $jenis);
                 })
-                ->simplePaginate(10);
+                ->get();
             return response()->json($laporan);
         } catch (\Throwable $th) {
             return redirect()->back()->withErrors($th->getMessage());

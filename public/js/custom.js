@@ -17,7 +17,7 @@ $(document).ready(function () {
             })
         } else {
             $.get('/getbyjenis/' + this.value, function (data) {
-                // console.log(data);
+                console.log(data);
                 addAduanTable(data);
             });
         }
@@ -53,7 +53,7 @@ $(document).ready(function () {
 
     // table data pengaduan
     function addDataAduan(data) {
-        var table = $('#table-data-aduan tbody');
+        var table = $('.table-data-aduan tbody');
         table.empty();
 
         data.forEach((element, index) => {
@@ -110,7 +110,7 @@ $(document).ready(function () {
 
     // table lihat pengaduan
     function addAduanTable(data) {
-        var table = $('#table-aduan tbody');
+        var table = $('.table-pengaduan tbody');
         table.empty();
 
         data.forEach((element, index) => {
@@ -119,11 +119,14 @@ $(document).ready(function () {
             var statusBadge;
 
             switch (element.status) {
+                case 'open':
+                    statusBadge = '<div class="badge badge-primary">Open</div>';
+                    break;
                 case 'completed':
                     statusBadge = '<div class="badge badge-success">Completed</div>';
                     break;
                 case 'in progress':
-                    statusBadge = '<div class="badge badge-info">In Progress</div>';
+                    statusBadge = '<div class="badge badge-danger">In Progress</div>';
                     break;
                 case 'pending':
                     statusBadge = '<div class="badge badge-warning">Pending</div>';

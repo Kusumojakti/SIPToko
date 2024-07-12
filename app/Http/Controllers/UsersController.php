@@ -14,7 +14,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::orderBy('name', 'asc')->simplePaginate(10);
+        $users = User::orderBy('name', 'asc')->get();
         return view('pages.pemeliharaan.data-user', compact('users'));
     }
 

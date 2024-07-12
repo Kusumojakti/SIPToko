@@ -6,11 +6,7 @@
     <!-- CSS Libraries -->
     <link rel="stylesheet" href="{{ asset('library/jqvmap/dist/jqvmap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('library/summernote/dist/summernote-bs4.min.css') }}">
-    <!-- quill js -->
-    <link rel="stylesheet" href="https://cdn.quilljs.com/1.3.6/quill.snow.css" />
-    <link href="https://cdn.quilljs.com/1.3.6/quill.core.css" rel="stylesheet" />
-    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-    <script src=" https://cdn.jsdelivr.net/npm/quill-image-resize-module@3.0.0/image-resize.min.js"></script>
+    <link rel="stylesheet" href="{{ asset('library/datatables/media/css/jquery.dataTables.min.css') }}">
 @endpush
 
 @section('main')
@@ -41,9 +37,10 @@
                                             Pengaduan</a>
                                     </div>
                                 </div>
+
                                 <div class="card-body">
                                     <div class="table-responsive">
-                                        <table class="table-striped table" id="table-aduan">
+                                        <table class="table-striped table table-pengaduan" id="table-1">
                                             <thead>
                                                 <tr>
                                                     <th class="text-center">
@@ -61,7 +58,7 @@
                                                 @foreach ($laporan as $index => $item)
                                                     <tr>
                                                         <td>
-                                                            {{ $index + $laporan->firstItem() }}
+                                                            {{ $index + 1 }}
                                                         </td>
                                                         <td>{{ $item->laporan }}</td>
                                                         <td>{{ $item->created_at }}</td>
@@ -98,9 +95,6 @@
                                         </table>
                                     </div>
                                 </div>
-                                <div class="card-footer text-right">
-                                    {{ $laporan->links() }}
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -113,13 +107,16 @@
 
 @push('scripts')
     <!-- JS Libraies -->
-    <script src="{{ asset('library/simpleweather/jquery.simpleWeather.min.js') }}"></script>
+    {{-- <script src="{{ asset('library/simpleweather/jquery.simpleWeather.min.js') }}"></script>
     <script src="{{ asset('library/chart.js/dist/Chart.min.js') }}"></script>
     <script src="{{ asset('library/jqvmap/dist/jquery.vmap.min.js') }}"></script>
     <script src="{{ asset('library/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
     <script src="{{ asset('library/summernote/dist/summernote-bs4.min.js') }}"></script>
-    <script src="{{ asset('library/chocolat/dist/js/jquery.chocolat.min.js') }}"></script>
+    <script src="{{ asset('library/chocolat/dist/js/jquery.chocolat.min.js') }}"></script> --}}
+    <script src="{{ asset('library/jquery-ui-dist/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('library/datatables/media/js/jquery.dataTables.min.js') }}"></script>
 
     <!-- Page Specific JS File -->
+    <script src="{{ asset('js/page/modules-datatables.js') }}"></script>
     <script src="{{ asset('js/page/index-0.js') }}"></script>
 @endpush
