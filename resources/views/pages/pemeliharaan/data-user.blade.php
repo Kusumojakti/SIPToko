@@ -56,11 +56,15 @@
                                                             {{ $item->role }}
                                                         </td>
                                                         <td>
+                                                            <button class="btn btn-primary dropdown-toggle" type="button"
+                                                                    data-toggle="dropdown" aria-haspopup="true"
+                                                                    aria-expanded="false" data-bs-toggle="dropdown">
+                                                                    Detail
+                                                                </button>
                                                             <div class="dropdown-menu">
-                                                                <a class="dropdown-item has-icon" href="#"><i
+                                                                <a class="dropdown-item has-icon" data-target="#editdata" data-toggle="modal"><i
                                                                         class="fa-regular fa-pen-to-square"></i>Edit</a>
-                                                                <a class="dropdown-item has-icon" href="#"><i
-                                                                        class="fa-regular fa-pen-to-square"></i>Hapus</a>
+                                                                <a class="dropdown-item has-icon" href="#"><i class="fa-solid fa-trash"></i>Hapus</a>
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -84,31 +88,19 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title fs-5" id="exampleModalToggleLabel">Edit Data Pengaduan</h5>
+                        <h5 class="modal-title fs-5" id="exampleModalToggleLabel">Edit Data User</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <form action="">
                         <div class="modal-body">
                             <div class="mb-3">
-                                <label for="add_kodeBrg" class="form-label">Pengaduan</label>
+                                <label for="add_kodeBrg" class="form-label">Nama</label>
                                 <input type="text" class="form-control" id="add_kodeBrg" name="kodeBrg"
                                     placeholder="Masukkan Pengaduan Anda" required>
                             </div>
                             <div class="mb-3">
-                                <label for="add_kodeBrg" class="form-label">Dikerjakan oleh</label>
+                                <label for="add_kodeBrg" class="form-label">Role</label>
                                 <input type="text" class="form-control" id="add_kodeBrg" name="kodeBrg" readonly>
-                            </div>
-                            <div class="mb-3">
-                                <label for="add_kodeBrg" class="form-label">Dikomplain oleh</label>
-                                <input type="text" class="form-control" id="add_kodeBrg" name="kodeBrg"readonly>
-                            </div>
-                            <div class="form-group mb-3">
-                                <label>Status</label>
-                                <select class="form-control">
-                                    <option>Open</option>
-                                    <option>Inprogress</option>
-                                    <option>Pending</option>
-                                </select>
                             </div>
                         </div>
                         <div class="modal-footer">
