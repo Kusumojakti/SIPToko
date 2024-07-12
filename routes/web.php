@@ -42,7 +42,7 @@ Route::middleware(LoginCheck::class)->group(function () {
 
 
     Route::get('/profile', function () {
-        return view('pages.karyawan.profile');
+        return view('pages.profile');
     });
 
     Route::get('/followupkaryawan', function () {
