@@ -58,8 +58,19 @@
                                                         title="Wildan Ahdian">
                                                 </td>
 
-                                                <td><a href="#" data-target="#editdata" data-toggle="modal"
-                                                        class="btn btn-secondary">Detail</a></td>
+                                                <td><button class="btn btn-primary dropdown-toggle" type="button"
+                                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                                        data-bs-toggle="dropdown">
+                                                        Detail
+                                                    </button>
+                                                    <div class="dropdown-menu">
+                                                        <a class="dropdown-item has-icon" data-target="#editdata"
+                                                            data-toggle="modal"><i
+                                                                class="fa-regular fa-pen-to-square"></i>Edit</a>
+                                                        <a class="dropdown-item has-icon" href="#"><i
+                                                                class="fa-solid fa-trash"></i>Hapus</a>
+                                                    </div>
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>
