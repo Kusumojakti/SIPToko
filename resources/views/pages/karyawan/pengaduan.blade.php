@@ -1,12 +1,12 @@
 @extends('layout.app')
 
-@section('title', 'Data Pengaduan')
+@section('title', 'Lihat Pengaduan')
 
 @push('style')
     <!-- CSS Libraries -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css" />
     <link rel="stylesheet" href="{{ asset('library/jqvmap/dist/jqvmap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('library/summernote/dist/summernote-bs4.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('library/datatables/media/css/jquery.dataTables.min.css') }}">
 @endpush
 
 @section('main')
@@ -129,10 +129,11 @@
     <script src="{{ asset('library/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
     <script src="{{ asset('library/summernote/dist/summernote-bs4.min.js') }}"></script>
     <script src="{{ asset('library/chocolat/dist/js/jquery.chocolat.min.js') }}"></script> --}}
-    <script src="{{ asset('library/jquery-ui-dist/jquery-ui.min.js') }}"></script>
     <script src="{{ asset('library/datatables/media/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('library/jquery-ui-dist/jquery-ui.min.js') }}"></script>
 
     <!-- Page Specific JS File -->
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
     <script src="{{ asset('js/page/modules-datatables.js') }}"></script>
     <script src="{{ asset('js/page/index-0.js') }}"></script>
 @endpush

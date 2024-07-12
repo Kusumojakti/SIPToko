@@ -4,6 +4,7 @@
 
 @push('style')
     <!-- CSS Libraries -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css" />
     <link rel="stylesheet" href="{{ asset('library/jqvmap/dist/jqvmap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('library/summernote/dist/summernote-bs4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('library/datatables/media/css/jquery.dataTables.min.css') }}">
@@ -158,6 +159,7 @@
     <script src="{{ asset('library/datatables/media/js/jquery.dataTables.min.js') }}"></script>
 
     <!-- Page Specific JS File -->
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
     <script src="{{ asset('js/page/modules-datatables.js') }}"></script>
     <script src="{{ asset('js/page/index-0.js') }}"></script>
 @endpush
