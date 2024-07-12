@@ -7,11 +7,7 @@
     <link rel="stylesheet" href="{{ asset('library/jqvmap/dist/jqvmap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('library/summernote/dist/summernote-bs4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/img.css') }}">
-    <!-- quill js -->
-    <link rel="stylesheet" href="https://cdn.quilljs.com/1.3.6/quill.snow.css" />
-    <link href="https://cdn.quilljs.com/1.3.6/quill.core.css" rel="stylesheet" />
-    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-    <script src=" https://cdn.jsdelivr.net/npm/quill-image-resize-module@3.0.0/image-resize.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 @endpush
 
 @section('main')
@@ -42,7 +38,7 @@
                                         <label class="custom-file-label" for="foto">Choose file</label>
                                     </div>
                                 </div>
-                                <img src="{{ asset('images/laporan/' . $laporan->foto) }}" alt="image" class="img-fluid"
+                                <img src="{{ asset('images/laporan/' . $laporan->foto) }}" alt="image" class="img-fluid"  data-toggle="modal" data-target="#imageModal"
                                     width="200" id="preview">
                             </div>
                         </div>
@@ -61,6 +57,16 @@
     </div>
     </section>
     </div>
+        <!-- Modal -->
+    <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <img src="{{ asset('images/laporan/' . $laporan->foto) }}" alt="image" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @push('scripts')
@@ -71,6 +77,7 @@
     <script src="{{ asset('library/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
     <script src="{{ asset('library/summernote/dist/summernote-bs4.min.js') }}"></script>
     <script src="{{ asset('library/chocolat/dist/js/jquery.chocolat.min.js') }}"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <!-- Page Specific JS File -->
     <script src="{{ asset('js/page/index-0.js') }}"></script>
