@@ -17,7 +17,7 @@ class LaporanController extends Controller
      */
     public function index()
     {
-        $laporan = Laporan::with('userPelapor', 'userPekerja', 'jenisAduan')->get();
+        $laporan = Laporan::with('userPelapor', 'userPekerja', 'jenisAduan')->simplePaginate(10);
         $jenisAduan = JenisAduan::all();
         return view('pages.karyawan.pengaduan', compact('laporan', 'jenisAduan'));
     }
@@ -69,10 +69,13 @@ class LaporanController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Laporan $laporan, $id)
+    public function show($id)
     {
-        // dd($id);
-        // return view('pages.karyawan.rincian-aduan', compact('laporan'));
+        $laporan = Laporan::with('userPelapor', 'userPekerja', 'jenisAduan')
+            ->where('id', $id)
+            ->first();
+
+        return response()->json($laporan);
     }
 
     /**
@@ -95,6 +98,9 @@ class LaporanController extends Controller
                 'laporan' => 'required',
                 'foto' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
             ]);
+            if ($validator->fails()) {
+                return redirect()->back()->withErrors($validator);
+            }
             $data = $request->all();
 
             $laporan = Laporan::findOrFail($id);
@@ -133,7 +139,7 @@ class LaporanController extends Controller
                 ->whereHas('jenisAduan', function ($query) use ($jenis) {
                     $query->where('jenis_aduans.id', $jenis);
                 })
-                ->get();
+                ->simplePaginate(10);
             return response()->json($laporan);
         } catch (\Throwable $th) {
             return redirect()->back()->withErrors($th->getMessage());

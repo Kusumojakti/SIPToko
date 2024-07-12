@@ -61,7 +61,7 @@
                                                 @foreach ($laporan as $index => $item)
                                                     <tr>
                                                         <td>
-                                                            {{ $index + 1 }}
+                                                            {{ $index + $laporan->firstItem() }}
                                                         </td>
                                                         <td>{{ $item->laporan }}</td>
                                                         <td>{{ $item->created_at }}</td>
@@ -98,51 +98,15 @@
                                         </table>
                                     </div>
                                 </div>
+                                <div class="card-footer text-right">
+                                    {{ $laporan->links() }}
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- modal edit data -->
-        <div class="modal fade" id="editdata" aria-hidden="true" aria-labelledby="editdata" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title fs-5" id="exampleModalToggleLabel">Edit Data Pengaduan</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <form action="">
-                        <div class="modal-body">
-                            <div class="mb-3">
-                                <label for="add_kodeBrg" class="form-label">Pengaduan</label>
-                                <input type="text" class="form-control" id="add_kodeBrg" name="kodeBrg"
-                                    placeholder="Masukkan Pengaduan Anda" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="add_kodeBrg" class="form-label">Dikerjakan oleh</label>
-                                <input type="text" class="form-control" id="add_kodeBrg" name="kodeBrg" readonly>
-                            </div>
-                            <div class="mb-3">
-                                <label for="add_kodeBrg" class="form-label">Dikomplain oleh</label>
-                                <input type="text" class="form-control" id="add_kodeBrg" name="kodeBrg"readonly>
-                            </div>
-                            <div class="form-group mb-3">
-                                <label>Status</label>
-                                <select class="form-control">
-                                    <option>Open</option>
-                                    <option>Inprogress</option>
-                                    <option>Pending</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button class="btn btn-primary" type="submit">Ubah</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
 
     </div>
 @endsection

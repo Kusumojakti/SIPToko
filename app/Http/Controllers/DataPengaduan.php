@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\JenisAduan;
 use App\Models\Laporan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class DataPengaduan extends Controller
 {
@@ -13,7 +15,7 @@ class DataPengaduan extends Controller
      */
     public function index()
     {
-        $laporan = Laporan::with('userPelapor', 'userPekerja', 'jenisAduan')->get();
+        $laporan = Laporan::with('userPelapor', 'userPekerja', 'jenisAduan')->simplePaginate(10);
         $jenisAduan = JenisAduan::all();
         return view('pages.pemeliharaan.data-pengaduan', compact('laporan', 'jenisAduan'));
     }
@@ -53,9 +55,29 @@ class DataPengaduan extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Laporan $laporan)
+    public function update(Request $request, $id)
     {
-        //
+        try {
+            $validator = Validator::make($request->all(), [
+                'status' => 'required',
+            ]);
+
+            if ($validator->fails()) {
+                return redirect()->back()->withErrors($validator);
+            }
+
+            $laporan = Laporan::findOrFail($id);
+            if ($laporan) {
+                $laporan->update([
+                    'status' => $request->status,
+                    'pekerja' => Auth::user()->id
+                ]);
+
+                return redirect('/data-pengaduan')->with(['success' => 'Berhasil update data']);
+            }
+        } catch (\Throwable $th) {
+            return redirect()->back()->withErrors($th->getMessage());
+        }
     }
 
     /**

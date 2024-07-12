@@ -44,7 +44,7 @@
                         <a class="nav-link" href="/data-pengaduan">Data Pengaduan</a>
                     </li>
                     <li class=''>
-                        <a class="nav-link" href="#">Data User</a>
+                        <a class="nav-link" href="/users">Data User</a>
                     </li>
                 </ul>
             </li>

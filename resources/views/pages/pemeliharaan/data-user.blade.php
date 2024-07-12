@@ -4,19 +4,11 @@
 
 @push('style')
     <!-- CSS Libraries -->
-    <link rel="stylesheet"
-        href="{{ asset('library/jqvmap/dist/jqvmap.min.css') }}">
-    <link rel="stylesheet"
-        href="{{ asset('library/summernote/dist/summernote-bs4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('library/jqvmap/dist/jqvmap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('library/summernote/dist/summernote-bs4.min.css') }}">
     <!-- quill js -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.quilljs.com/1.3.6/quill.snow.css"
-    />
-    <link
-      href="https://cdn.quilljs.com/1.3.6/quill.core.css"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="https://cdn.quilljs.com/1.3.6/quill.snow.css" />
+    <link href="https://cdn.quilljs.com/1.3.6/quill.core.css" rel="stylesheet" />
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <script src=" https://cdn.jsdelivr.net/npm/quill-image-resize-module@3.0.0/image-resize.min.js"></script>
 @endpush
@@ -35,19 +27,17 @@
                                 <div class="card-header">
                                     <h4>Data User</h4>
                                     <!-- <div class="card-header-form">
-                                        <button class="btn btn-primary" type="button">Tambah Pengaduan</button>
-                                    </div> -->
+                                                                                                    <button class="btn btn-primary" type="button">Tambah Pengaduan</button>
+                                                                                                </div> -->
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
-                                        <table class="table-striped table"
-                                            id="table-1">
+                                        <table class="table-striped table" id="table-1">
                                             <thead>
                                                 <tr>
                                                     <th class="text-center">
                                                         #
                                                     </th>
-                                                    <th>User ID</th>
                                                     <th>Nama</th>
                                                     <th>NIK</th>
                                                     <th>Role</th>
@@ -55,28 +45,33 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>
-                                                        1
-                                                    </td>
-                                                    <td>Create a mobile app</td>
-                                                    <td>2018-01-20</td>
-                                                    <td>
-                                                        Ujang Maman
-                                                    </td>
-                                                    <td>Rafino</td>
-                                                    <td>
-                                                        <div class="dropdown-menu">
-                                                            <a class="dropdown-item has-icon"
-                                                                href="#"><i class="fa-regular fa-pen-to-square"></i>Edit</a>
-                                                            <a class="dropdown-item has-icon"
-                                                                href="#"><i class="fa-regular fa-pen-to-square"></i>Hapus</a>
-                                                        </div>
-                                                    </td>
-                                                </tr>
+                                                @foreach ($users as $index => $item)
+                                                    <tr>
+                                                        <td>
+                                                            {{ $index + $users->firstItem() }}
+                                                        </td>
+                                                        <td>{{ $item->name }}</td>
+                                                        <td>{{ $item->nik }}</td>
+                                                        <td>
+                                                            {{ $item->role }}
+                                                        </td>
+                                                        <td>
+                                                            <div class="dropdown-menu">
+                                                                <a class="dropdown-item has-icon" href="#"><i
+                                                                        class="fa-regular fa-pen-to-square"></i>Edit</a>
+                                                                <a class="dropdown-item has-icon" href="#"><i
+                                                                        class="fa-regular fa-pen-to-square"></i>Hapus</a>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>
+                                </div>
+                                <div class="card-footer text-right">
+                                    {{ $users->links() }}
+
                                 </div>
                             </div>
                         </div>
@@ -106,15 +101,15 @@
                             <div class="mb-3">
                                 <label for="add_kodeBrg" class="form-label">Dikomplain oleh</label>
                                 <input type="text" class="form-control" id="add_kodeBrg" name="kodeBrg"readonly>
-                            </div>                           
-                                <div class="form-group mb-3">
-                                    <label>Status</label>
-                                    <select class="form-control">
-                                        <option>Open</option>
-                                        <option>Inprogress</option>
-                                        <option>Pending</option>
-                                    </select>
-                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label>Status</label>
+                                <select class="form-control">
+                                    <option>Open</option>
+                                    <option>Inprogress</option>
+                                    <option>Pending</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-primary" type="submit">Ubah</button>

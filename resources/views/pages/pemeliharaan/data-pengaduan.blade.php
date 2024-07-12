@@ -23,7 +23,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="form-group">
                         <label>Pilih Jenis Pengaduan</label>
-                        <select class="form-control" name="jenis_aduans_id" id="jenis_aduans_id">
+                        <select class="form-control" name="jenis_aduans_id" id="data-pengaduan">
                             <option value="#">Semua Jenis Pengaduan</option>
                             @foreach ($jenisAduan as $item)
                                 <option value="{{ $item->id }}">{{ $item->nama }}</option>
@@ -36,7 +36,7 @@
                         </div>
                         <div class="card-body p-0">
                             <div class="table-responsive">
-                                <table class="table-striped table-md table">
+                                <table class="table-striped table-md table " id="table-data-aduan">
                                     <thead>
                                         <tr>
                                             <th>#</th>
@@ -51,7 +51,7 @@
                                     <tbody>
                                         @foreach ($laporan as $index => $item)
                                             <tr>
-                                                <td>{{ $index + 1 }}</td>
+                                                <td>{{ $index + $laporan->firstItem() }}</td>
                                                 <td>{{ $item->laporan }}</td>
                                                 <td>{{ $item->created_at }}</td>
                                                 <td>{{ $item->userPelapor->name }}</td>
@@ -83,13 +83,10 @@
                                                             Detail
                                                         </button>
                                                         <div class="dropdown-menu">
-                                                            <a class="dropdown-item has-icon" data-bs-target="#editdata"
-                                                                data-bs-toggle="modal"><i
+                                                            <a class="dropdown-item has-icon edit-data-pengaduan"
+                                                                data-id="{{ $item->id }}"><i
                                                                     class="fa-regular fa-pen-to-square"></i>
                                                                 Follow Up Pengaduan</a>
-                                                            {{-- <button class="dropdown-item has-icon" data-bs-toggle="modal"
-                                                                data-bs-target="#editdata" type="button">Follow Up
-                                                                Pengaduan</button> --}}
                                                         </div>
                                                     </div>
                                                 </td>
@@ -100,58 +97,46 @@
                             </div>
                         </div>
                         <div class="card-footer text-right">
-                            <nav class="d-inline-block">
-                                <ul class="pagination mb-0">
-                                    <li class="page-item disabled">
-                                        <a class="page-link" href="#" tabindex="-1"><i
-                                                class="fas fa-chevron-left"></i></a>
-                                    </li>
-                                    <li class="page-item active"><a class="page-link" href="#">1 <span
-                                                class="sr-only">(current)</span></a></li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">2</a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
-                                    </li>
-                                </ul>
-                            </nav>
+                            {{ $laporan->links() }}
+
                         </div>
                     </div>
                 </div>
             </div>
         </section>
         <!-- modal edit data -->
-        <div class="modal fade" id="editdata" aria-hidden="true" aria-labelledby="editdata" tabindex="-1">
+        <div class="modal fade" id="modal-edit-pengaduan" aria-hidden="true" aria-labelledby="modal-edit-pengaduan"
+            tabindex="-1">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title fs-5" id="exampleModalToggleLabel">Edit Data Pengaduan</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form action="">
+                    <form method="POST" id="form-edit-pengaduan">
+                        @csrf
+                        @method('PUT')
 
                         <div class="modal-body">
                             <div class="mb-3">
-                                <label for="add_kodeBrg" class="form-label">Pengaduan</label>
-                                <input type="text" class="form-control" id="add_kodeBrg" name="kodeBrg"
-                                    placeholder="Masukkan Pengaduan Anda" required>
+                                <label for="dataLaporan" class="form-label">Pengaduan</label>
+                                <input type="text" class="form-control" id="dataLaporan" name="dataLaporan" readonly>
                             </div>
                             <div class="mb-3">
-                                <label for="add_kodeBrg" class="form-label">Dikerjakan oleh</label>
-                                <input type="text" class="form-control" id="add_kodeBrg" name="kodeBrg" readonly>
+                                <label for="namaPekerja" class="form-label">Dikerjakan oleh</label>
+                                <input type="text" class="form-control" id="namaPekerja" name="namaPekerja" readonly>
                             </div>
                             <div class="mb-3">
-                                <label for="add_kodeBrg" class="form-label">Dikomplain oleh</label>
-                                <input type="text" class="form-control" id="add_kodeBrg" name="kodeBrg"readonly>
+                                <label for="namaPelapor" class="form-label">Dikomplain oleh</label>
+                                <input type="text" class="form-control" id="namaPelapor" name="namaPelapor"readonly>
                             </div>
                             <div class="form-group mb-3">
                                 <label>Status</label>
-                                <select class="form-control">
-                                    <option>Open</option>
-                                    <option>Inprogress</option>
-                                    <option>Pending</option>
+                                <select class="form-control status-aduan" name="status">
+                                    <option value="open">Open</option>
+                                    <option value="pending">Pending</option>
+                                    <option value="in progress">Inprogress</option>
+                                    <option value="completed">Completed</option>
                                 </select>
                             </div>
                         </div>

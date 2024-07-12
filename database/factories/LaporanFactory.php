@@ -17,7 +17,11 @@ class LaporanFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'laporan' => fake()->text(50),
+            'pelapor' => 2,
+            'pekerja' => 1,
+            'jenis_aduans_id' => random_int(1, 6),
+            'foto' => fake()->randomElement(['1720766521.jpg', '1720766701.png', '1720766717.jpg'])
         ];
     }
 }
