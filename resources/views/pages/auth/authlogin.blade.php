@@ -19,6 +19,8 @@
                 <div class="col-12 col-md-6 col-xl-7">
                     <div class="d-flex justify-content-center text-bg-primary">
                         <div class="col-12 col-xl-9">
+                            <img src="{{ asset('images/logo1.jpg') }}" alt="Logo"
+                                class="img-thumbnail img-fluid w-50 mb-4 d-block mx-auto">
                             <hr class="border-primary-subtle mb-4">
                             <h2 class="h4 mb-4">Sistem Pengaduan Maintenance Toko Industri Manis</h2>
                             <p class="lead mb-5">PT. INDOMARCO PRISMATAMA CABANG TANGERANG 1</p>

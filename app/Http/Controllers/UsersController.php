@@ -82,7 +82,8 @@ class UsersController extends Controller
     {
         try {
             $validator = Validator::make($request->all(), [
-                'name' => 'required'
+                'name' => 'required',
+                'role' => 'required'
             ]);
 
             if ($validator->fails()) {
@@ -93,7 +94,8 @@ class UsersController extends Controller
 
             if ($user) {
                 $user->update([
-                    'name' => $request->name
+                    'name' => $request->name,
+                    'role' => $request->role
                 ]);
 
                 return redirect()->back()->with(['success' => 'Berhasil update data']);

@@ -108,7 +108,10 @@
                             </div>
                             <div class="mb-3">
                                 <label for="roleUser" class="form-label">Role</label>
-                                <input type="text" class="form-control" id="roleUser" name="role" readonly>
+                                <select class="form-control" name="role" id="roleUser">
+                                    <option value="karyawan">Karyawan</option>
+                                    <option value="pemeliharaan">Pemeliharaan</option>
+                                </select>
                             </div>
                         </div>
                         <div class="modal-footer">

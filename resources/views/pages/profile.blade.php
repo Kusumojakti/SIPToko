@@ -28,11 +28,11 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label>Nama</label>
-                                <input type="text"class="form-control" value="{{ Auth::user()->name }}">
+                                <input type="text"class="form-control" value="{{ Auth::user()->name }}" readonly>
                             </div>
                             <div class="form-group">
                                 <label>NIK</label>
-                                <input type="text"class="form-control" value="{{ Auth::user()->nik }}">
+                                <input type="text"class="form-control" value="{{ Auth::user()->nik }}" readonly>
                             </div>
                         </div>
                     </div>
