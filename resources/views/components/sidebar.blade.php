@@ -38,10 +38,10 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/profile"><i class="fa-solid fa-user"></i> <span>Profile</span></a>
-                </li>
             @endif
+            <li class="nav-item">
+                <a class="nav-link" href="/profile"><i class="fa-solid fa-user"></i> <span>Profile</span></a>
+            </li>
 
         </ul>
     </aside>

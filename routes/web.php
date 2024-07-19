@@ -26,9 +26,6 @@ Route::get('logout', [AuthController::class, 'logout']);
 
 
 Route::middleware(LoginCheck::class)->group(function () {
-
-
-
     Route::get('/', [MainController::class, 'index']);
 
     Route::middleware('roles:karyawan,pemeliharaan')->group(function () {

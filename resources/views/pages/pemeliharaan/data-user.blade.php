@@ -68,12 +68,12 @@
                                                         <a class="dropdown-item has-icon edit-user"
                                                             data-id="{{ $item->id }}"><i
                                                                 class="fa-regular fa-pen-to-square"></i>Edit</a>
-                                                        <form action="{{ route('users.destroy', $item->id + 1) }}"
-                                                            method="POST" id="hapus-user">
+                                                        <form action="{{ route('users.destroy', $item->id) }}"
+                                                            method="POST" id="hapus-user-{{ $item->id }}">
                                                             @csrf
                                                             @method('DELETE')
                                                             <a
-                                                                class="dropdown-item has-icon"onclick="document.getElementById('hapus-user').submit(); return false;"><i
+                                                                class="dropdown-item has-icon"onclick="document.getElementById('hapus-user-{{ $item->id }}').submit(); return false;"><i
                                                                     class="fa-solid fa-trash"></i>Hapus</a>
 
                                                         </form>
